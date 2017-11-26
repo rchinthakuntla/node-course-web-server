@@ -22,12 +22,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs', {
-//     pageTitle: 'Maintenance page',
-//     body: 'Site is currently under maintenance.'
-//   });
-// });
+app.use((req, res, next) => {
+  res.render('maintenance.hbs', {
+    pageTitle: 'Maintenance page',
+    body: 'Site is currently under maintenance.'
+  });
+});
 
 
 app.use(_express.static(__dirname + '/public'));
