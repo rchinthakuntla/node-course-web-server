@@ -4,6 +4,7 @@ const _hbs = require('hbs');
 const _fs = require('fs');
 
 // Create App object by invoking express function
+const port = process.env.PORT || 3000;
 var app = _express();
 
 _hbs.registerPartials(__dirname+'/views/partials');
@@ -48,19 +49,7 @@ app.get('/about', (req, res) => {
   });
 })
 
-app.get('/bad', (req, res) => {
-  res.send(
-  {
-    errorMessage: 'Bad Request',
-    errorCode: 400
-  });
-})
-
-app.get('/xml', (req, res) => {
-  res.send('<status>ok</status>');
-})
-
 // Listen for incoming traffic on port 3000
-app.listen(3000, () => {
-  console.log("Server is up and running");
+app.listen(port, () => {
+  console.log(`Server is up and running on ${port}`);
 });
